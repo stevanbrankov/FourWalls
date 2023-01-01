@@ -67,6 +67,7 @@ public class FourWalls {
             List<WebElement> perPage = chromeDriver.findElements(By.cssSelector("div[waintersectionthreshold='0.25'] app-ad-search-preview a:first-child"));
 
             for (int i = 0; i < perPage.size(); i++) {
+                Thread.sleep(100);
                 perPage = chromeDriver.findElements(By.cssSelector("div[waintersectionthreshold='0.25'] app-ad-search-preview a:first-child"));
                 noCopies.add(perPage.get(i).getAttribute("href"));
             }
