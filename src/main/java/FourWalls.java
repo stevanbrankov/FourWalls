@@ -35,10 +35,13 @@ public class FourWalls {
         chromeDriver.manage().window().maximize();
         chromeDriver.get("https://www.4zida.rs/");
 
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("[for='mat-radio-3-input']")));
         chromeDriver.findElement(By.cssSelector("[for='mat-radio-3-input']")).click();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("[placeholder='Upiši lokaciju...']")));
         chromeDriver.findElement(By.cssSelector("[placeholder='Upiši lokaciju...']")).sendKeys(place);
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("#mat-option-5")));
         chromeDriver.findElement(By.cssSelector("#mat-option-5")).click();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("[type='submit']")));
         chromeDriver.findElement(By.cssSelector("[type='submit']")).click();
 
 
