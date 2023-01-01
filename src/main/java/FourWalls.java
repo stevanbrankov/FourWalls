@@ -37,13 +37,12 @@ public class FourWalls {
 
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("[for='mat-radio-3-input']")));
         chromeDriver.findElement(By.cssSelector("[for='mat-radio-3-input']")).click();
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("[placeholder='Upiši lokaciju...']")));
-        chromeDriver.findElement(By.cssSelector("[placeholder='Upiši lokaciju...']")).sendKeys(place);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("input#mat-mdc-chip-list-input-0")));
+        chromeDriver.findElement(By.cssSelector("input#mat-mdc-chip-list-input-0")).sendKeys(place);
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("#mat-option-5")));
         chromeDriver.findElement(By.cssSelector("#mat-option-5")).click();
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("[type='submit']")));
         chromeDriver.findElement(By.cssSelector("[type='submit']")).click();
-
 
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("#mat-input-0")));
         chromeDriver.findElement(By.cssSelector("#mat-input-0")).sendKeys(priceFrom);
