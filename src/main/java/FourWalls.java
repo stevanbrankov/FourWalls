@@ -57,11 +57,9 @@ public class FourWalls {
 
         while (true) {
             boolean breakIt = false;
-            int currentPage = Integer.parseInt(chromeDriver.findElement(By.cssSelector("div[class='active pagination-item']")).getText());
-            int nextPage = currentPage + 1;
 
             try {
-                chromeDriver.findElement(By.cssSelector("a[title='Strana: " + nextPage + "'][class='arrow ng-star-inserted']"));
+                chromeDriver.findElement(By.cssSelector(".pagination-container .ng-star-inserted:nth-child(7)"));
             } catch (NoSuchElementException e) {
                 breakIt = true;
             }
@@ -78,7 +76,7 @@ public class FourWalls {
                 chromeDriver.close();
                 break;
             }
-            chromeDriver.findElement(By.cssSelector("a[title='Strana: " + nextPage + "'][class='arrow ng-star-inserted']")).click();
+            chromeDriver.findElement(By.cssSelector(".pagination-container .ng-star-inserted:nth-child(7)")).click();
             Thread.sleep(500);
         }
 
