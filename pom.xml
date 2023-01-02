@@ -15,8 +15,8 @@
 
     <dependencies>
         <dependency>
-            <groupId>com.twilio.sdk</groupId>
-            <artifactId>twilio</artifactId>
+            <groupId>org.twitter4j</groupId>
+            <artifactId>twitter4j-stream</artifactId>
             <version>LATEST</version>
         </dependency>
         <dependency>
