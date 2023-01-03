@@ -19,7 +19,7 @@ public class ExcelOperations {
     private ExcelOperations() {
     }
 
-    private static String dbLocation = "D:\\IntellijProjects\\FourWalls\\src\\main\\resources\\FourWalls.xlsx";
+    private static String dbLocation = System.getProperty("user.dir") + "\\src\\main\\resources\\FourWalls.xlsx";
 
     public static void writeInExcelFile(Set<String> links) {
         try (FileInputStream fis = new FileInputStream(dbLocation)) {
