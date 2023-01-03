@@ -10,7 +10,9 @@ public class Test {
     public static void API() throws IOException, InterruptedException, TwitterException {
         Set<String> apartments = FourWalls.getApartments();
         Twitter twitter = TwitterAppBot.init();
+        if (!apartments.isEmpty()) System.out.println("New:");
         for (String apartment : apartments) {
+            System.out.println(apartment);
             twitter.sendDirectMessage("FourWallsBro", apartment);
             Thread.sleep(1500);
         }
