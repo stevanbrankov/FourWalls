@@ -2,12 +2,12 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2023-01-04T20:01:17 CET" name="Test" finished-at="2023-01-04T20:02:52 CET" duration-ms="95536">
+  <suite started-at="2023-01-04T21:24:12 CET" name="Test" finished-at="2023-01-04T21:25:37 CET" duration-ms="84820">
     <groups>
     </groups>
-    <test started-at="2023-01-04T20:01:17 CET" name="Command line test" finished-at="2023-01-04T20:02:52 CET" duration-ms="95536">
+    <test started-at="2023-01-04T21:24:12 CET" name="Command line test" finished-at="2023-01-04T21:25:37 CET" duration-ms="84820">
       <class name="Test">
-        <test-method signature="API()[pri:0, instance:Test@45b4c3a9]" started-at="2023-01-04T20:01:17 CET" name="API" finished-at="2023-01-04T20:02:52 CET" duration-ms="95224" status="PASS">
+        <test-method signature="API()[pri:0, instance:Test@45b4c3a9]" started-at="2023-01-04T21:24:12 CET" name="API" finished-at="2023-01-04T21:25:37 CET" duration-ms="84740" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- API -->
