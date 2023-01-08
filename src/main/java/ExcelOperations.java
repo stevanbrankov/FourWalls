@@ -12,7 +12,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
 public class ExcelOperations {
 
@@ -21,18 +20,19 @@ public class ExcelOperations {
 
     private static String dbLocation = System.getProperty("user.dir") + "\\src\\main\\resources\\FourWalls.xlsx";
 
-    public static void writeInExcelFile(Set<String> links) {
+    public static void writeNewDataInExcelFile(List<List<String>> insertData) {
         try (FileInputStream fis = new FileInputStream(dbLocation)) {
             XSSFWorkbook workbook = new XSSFWorkbook(fis);
             XSSFSheet sheet = workbook.getSheetAt(0);
 
-            for (String link : links) {
+            for (List<String> oneApartmentData : insertData) {
                 int rowCount = sheet.getLastRowNum();
 
                 XSSFRow row = sheet.createRow(++rowCount);
-                int columnCount = 0;
-                XSSFCell cell = row.createCell(columnCount++);
-                cell.setCellValue(link);
+                XSSFCell cellLink = row.createCell(0);
+                XSSFCell cellPrice = row.createCell(1);
+                cellLink.setCellValue(oneApartmentData.get(0));
+                cellPrice.setCellValue(oneApartmentData.get(1));
             }
 
             FileOutputStream outputStream = new FileOutputStream(dbLocation);
@@ -43,21 +43,48 @@ public class ExcelOperations {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
 
-    public static List<String> readFromExcelFile() throws IOException {
-        List<String> data = new ArrayList<>();
-        try (FileInputStream file = new FileInputStream(dbLocation);
-             Workbook workbook = new XSSFWorkbook(file)) {
+    public static void writeExistingDataInExcelFile(List<List<String>> insertData) {
+        try (FileInputStream fis = new FileInputStream(dbLocation)) {
+            XSSFWorkbook workbook = new XSSFWorkbook(fis);
+            XSSFSheet sheet = workbook.getSheetAt(0);
 
-            Sheet sheet = workbook.getSheetAt(0);
-            for (Row row : sheet) {
-                for (Cell cell : row) {
-                    data.add(cell.getStringCellValue());
+            for (Row row : sheet){
+                String linkFromExcel = row.getCell(0).getStringCellValue();
+                for (List<String> oneApartmentData : insertData) {
+                    String linkFromInsertData = oneApartmentData.get(0);
+                    if (linkFromExcel.equals(linkFromInsertData)){
+                        XSSFRow xssfRow = sheet.createRow(row.getRowNum());
+                        XSSFCell cellLink = xssfRow.createCell(0);
+                        cellLink.setCellValue(oneApartmentData.get(0));
+                        XSSFCell cellPrice = xssfRow.createCell(1);
+                        cellPrice.setCellValue(oneApartmentData.get(1));
+                    }
                 }
             }
+            FileOutputStream outputStream = new FileOutputStream(dbLocation);
+            workbook.write(outputStream);
+            workbook.close();
+            outputStream.close();
+
+        } catch (IOException e) {
+            e.printStackTrace();
         }
-        return data;
+    }
+
+    public static List<List<String>> readFromExcelFile() throws IOException {
+        List<List<String>> excelData = new ArrayList<>();
+        try (FileInputStream file = new FileInputStream(dbLocation); Workbook workbook = new XSSFWorkbook(file)) {
+            Sheet sheet = workbook.getSheetAt(0);
+            for (Row row : sheet) {
+                List<String> rowList = new ArrayList<>();
+                for (Cell cell : row) {
+                    rowList.add(cell.getStringCellValue());
+                }
+                excelData.add(rowList);
+            }
+        }
+        return excelData;
     }
 }
