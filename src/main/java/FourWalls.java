@@ -25,10 +25,10 @@ public class FourWalls {
 
     public static List<List<String>> getApartmentsFromPage() throws InterruptedException {
 
-        //ChromeOptions options = new ChromeOptions();
-        //options.addArguments("--headless", "--window-size=1920,1200");
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--headless", "--window-size=1920,1200");
 
-        WebDriver chromeDriver = new ChromeDriver(/*options*/);
+        WebDriver chromeDriver = new ChromeDriver(options);
 
         WebDriverWait wait = new WebDriverWait(chromeDriver, Duration.ofSeconds(10));
 

@@ -1,0 +1,21 @@
+
+k
+java:S1192,"PDefine a constant instead of duplicating this literal "[type='submit']" 4 times.(ô†ü¢ùÿÿÿÿ
+Q
+java:S1066c"/Merge this if statement with the enclosing one.(Šƒ¡óşÿÿÿÿ8Ş’ÄÙ0
+0
+java:S1220""Move this file to a named package.
+o	java:S115"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(Ş¼İÀ
+o	java:S115"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(õî‘Û
+t	java:S115"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(‰£•¿ÿÿÿÿÿ
+o	java:S115"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(„í¯ˆ
+a
+java:S1854D"KRemove this useless assignment to local variable "allElementsPerPageChild".(ÍŠˆ
+V	java:S125"<This block of commented-out lines of code should be removed.(¬«Å”ıÿÿÿÿ
+`
+java:S1128"ERemove this unused import 'org.openqa.selenium.chrome.ChromeOptions'.(ÿ¾Ïóüÿÿÿÿ
+K
+java:S1128
+"0Remove this unused import 'java.io.IOException'.(ªº»Úıÿÿÿÿ
+J
+java:S1128"/Remove this unused import 'java.sql.SQLOutput'.(ê¤òÃùÿÿÿÿ
